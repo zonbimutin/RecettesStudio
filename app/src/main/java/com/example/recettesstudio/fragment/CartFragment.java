@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class CartFragment extends Fragment {
 
-    FragmentCartBinding binding;
+    public FragmentCartBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +48,7 @@ public class CartFragment extends Fragment {
 
         binding.cartTotal.setText(String.valueOf(total) + "€");
         binding.productsList.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) produits));
+        binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) produits, true));
 
         return binding.getRoot();
     }

@@ -77,7 +77,7 @@ public class ProductorFragment extends Fragment {
 
         binding.productsList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.productsList.setAdapter(new ProductsAdapter(this,
-                AppDatabase.getDatabase(getContext()).produitDao().getProduitsByProductor(name)));
+                AppDatabase.getDatabase(getContext()).produitDao().getProduitsByProductor(name), false));
 
         return binding.getRoot();
     }

@@ -68,7 +68,7 @@ public class ProductsFragment extends Fragment {
 
         binding.productsList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.productsList.setAdapter(new ProductsAdapter(this,
-                AppDatabase.getDatabase(getContext()).produitDao().getProduitsByCategories(name)));
+                AppDatabase.getDatabase(getContext()).produitDao().getProduitsByCategories(name), false));
 
         return binding.getRoot();
     }

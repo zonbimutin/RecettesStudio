@@ -89,7 +89,7 @@ public class RecetteDetailFragment extends Fragment {
         binding.recetteName.setText(recette.getName());
 
         binding.productsList.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) produits));
+        binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) produits, false));
 
         binding.addAllToCart.setOnClickListener(new View.OnClickListener() {
             @Override

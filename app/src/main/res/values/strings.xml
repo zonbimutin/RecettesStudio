@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RecettesStudio</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cart_fragment">Shopping Cart</string>
+    <string name="categorie_fragment">Categories</string>
+
+</resources>

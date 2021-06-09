@@ -36,12 +36,19 @@ public class CartFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         Cart cart = AppDatabase.getDatabase(getContext()).cartDao().getCart();
+        int total = 0;
+
+        ArrayList<Produit> produits = cart.getProducts(getContext());
+
+        for(Produit produit : produits){
+            total += produit.getPrice();
+        }
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false);
 
 
         binding.productsList.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) cart.getProducts(getContext())));
+        binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) produits));
 
         return binding.getRoot();
     }

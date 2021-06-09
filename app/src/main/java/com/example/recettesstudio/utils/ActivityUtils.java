@@ -42,7 +42,7 @@ public class ActivityUtils {
     public static void addFragmentToActivity(AppCompatActivity activity, Fragment fragment, int frameId, boolean isAddToBack) {
         FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
         transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
-        transaction.add(frameId, fragment, "tag");
+        transaction.replace(frameId, fragment, "tag");
         if(isAddToBack){
             transaction.addToBackStack(null);
         }

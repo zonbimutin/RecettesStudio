@@ -13,9 +13,13 @@ import android.view.ViewGroup;
 import com.example.recettesstudio.R;
 import com.example.recettesstudio.adapter.ProductsAdapter;
 import com.example.recettesstudio.dao.AppDatabase;
+import com.example.recettesstudio.dao.CartDao;
 import com.example.recettesstudio.databinding.FragmentProductDetailBinding;
+import com.example.recettesstudio.model.Cart;
 import com.example.recettesstudio.model.Productor;
 import com.example.recettesstudio.model.Produit;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,6 +77,23 @@ public class ProductDetailFragment extends Fragment {
         binding.productName.setText(produit.getName());
         binding.productProductor.setText(produit.getProductorName());
         binding.productPrice.setText(String.valueOf(produit.getPrice()));
+
+        binding.productAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                CartDao cartDao = AppDatabase.getDatabase(getContext()).cartDao();
+                Cart cart = cartDao.getCart();
+
+                ArrayList<String> cartItems = cart.getProductsName();
+                cartItems.add(produit.getName());
+
+                cart.setProductsName(cartItems);
+                cartDao.insert(cart);
+
+
+            }
+        });
 
 
         return binding.getRoot();

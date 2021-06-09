@@ -46,7 +46,7 @@ public class CartFragment extends Fragment {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cart, container, false);
 
-
+        binding.cartTotal.setText(String.valueOf(total) + "€");
         binding.productsList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.productsList.setAdapter(new ProductsAdapter(this, (List<Produit>) produits));
 
